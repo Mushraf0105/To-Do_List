@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do List | In-Memory Task Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="background-decorations" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <h1 class="app-title">To-Do List</h1>
+    </header>
+
+    <!-- Main Card -->
+    <main class="todo-card">
+      <!-- Input Form -->
+      <form id="todoForm" class="todo-form" autocomplete="off">
+        <div class="input-wrapper">
+          <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          <input type="text" id="taskInput" class="task-input" placeholder="Add a new task..." maxlength="120"
+            aria-label="New task input" required />
+        </div>
+        <button type="submit" id="addBtn" class="btn btn-add">
+          <span>Add Task</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </button>
+      </form>
+
+      <!-- Status Header & Stats -->
+      <div class="list-meta">
+        <div class="stats-label">
+          <span class="meta-title">Tasks</span>
+          <span id="taskCounter" class="task-counter">0 total</span>
+        </div>
+        <button id="clearAllBtn" class="btn-text-action" type="button" title="Clear all tasks" style="display: none;">
+          Clear All
+        </button>
+      </div>
+
+      <!-- Task List Container -->
+      <div class="list-wrapper">
+        <ul id="todoList" class="todo-list" aria-label="Task List" aria-live="polite">
+          <!-- Dynamically populated via renderTasks() -->
+        </ul>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+          <h3>No tasks yet</h3>
+          <p>Type a task above and press <strong>Enter</strong> or click <strong>Add Task</strong> to get started.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
